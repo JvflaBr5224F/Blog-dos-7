@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bate-Papo</title>
+    <link rel="stylesheet" href="chat-style.css">
+</head>
+<body>
+    <h1>Bate-Papo Online</h1>
+    
+    <div class="chat-container">
+        <input type="text" id="messageInput" placeholder="Digite sua mensagem">
+        <button id="sendMessageButton">Enviar</button>
+        <div id="chatDisplay"></div>
+    </div>
+
+    <!-- Script do Firebase e JavaScript -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-app.js";
+        import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.14.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "sua-api-key",
+            authDomain: "blog-dos-7.firebaseapp.com",
+            projectId: "blog-dos-7",
+            storageBucket: "blog-dos-7.appspot.com",
+            messagingSenderId: "seu-sender-id",
+            appId: "seu-app-id",
+            measurementId: "seu-measurement-id",
+            databaseURL: "https://blog-dos-7-default-rtdb.firebaseio.com/"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        const chatRef = ref(database, "chat");
+
+        document.getElementById("sendMessageButton").addEventListener("click", function() {
+            const message = document.getElementById("messageInput").value;
+            if (message.trim() !== "") {
+                push(chatRef, {
+                    text: message,
+                    timestamp: Date.now()
+                });
+                document.getElementById("messageInput").value = "";
+            }
+        });
+
+        onChildAdded(chatRef, function(snapshot) {
+            const message = snapshot.val();
+            const messageElement = document.createElement("p");
+            messageElement.textContent = message.text;
+            document.getElementById("chatDisplay").appendChild(messageElement);
+        });
+    </script>
+</body>
+</html>

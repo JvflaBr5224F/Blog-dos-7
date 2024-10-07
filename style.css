@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+body {
+  font-family: "Pixelify Sans", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #ffffff; /* Cor do texto branco */
+  font-size: 40pt;
+  margin-top: 20px;
+  text-shadow: 
+      -2px -2px 0 #000000,  
+      2px -2px 0 #000000,
+      -2px 2px 0 #000000,
+      2px 2px 0 #000000; /* Sombra preta aumentada */
+}
+
+header {
+  background: linear-gradient(135deg, #6a5acd, #00bfff); /* Gradiente entre azul e roxo */
+  padding: 20px 0;
+}
+
+/* Estilos para o ícone da lupa */
+.lupa-icon {
+  width: 30px; /* Tamanho da lupa */
+  height: auto;
+  vertical-align: middle;
+  margin-right: 10px; /* Espaço entre a lupa e a barra de pesquisa */
+}
+
+/* Estilos para a barra de pesquisa */
+.search-bar {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+}
+
+/* Container para alinhar a lupa e a barra de pesquisa */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Galeria de imagens */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Espaçamento entre as imagens */
+  margin-top: 50px;
+}
+
+.image-gallery img {
+  width: 30%; /* Tamanho das imagens */
+  height: auto;
+  margin: 10px;
+}
+
+/* Estilos de navegação */
+nav {
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none; /* Remove o sublinhado do link */
+  color: #ffffff; /* Cor do texto branco */
+  font-weight: bold;
+  text-shadow: 
+      -1px -1px 0 #000000,
+      1px -1px 0 #000000,
+      -1px 1px 0 #000000,
+      1px 1px 0 #000000; /* Borda preta ao redor do texto */
+}
+
+nav a:hover {
+  color: #007bff; /* Cor do texto ao passar o mouse */
+}
+
+/* Estilos para o ícone de chat */
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px; /* Tamanho do ícone */
+  height: 60px;
+  cursor: pointer; /* Cursor muda ao passar sobre o ícone */
+  z-index: 1000; /* Fica acima de outros elementos */
+}
+
+.chat-icon:hover {
+  transform: scale(1.1); /* Aumenta o ícone ao passar o mouse */
+  transition: transform 0.2s; /* Suaviza o efeito */
+}
